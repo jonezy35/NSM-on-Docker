@@ -1,4 +1,10 @@
-I recently set up Elasticsearch, Kibana, and Suricata in my homelab in docker containers utilizing filebeat to ship the logs from Suricata's eve.json to Elasticsearch. This is the process.
+I recently set up Elasticsearch, Kibana, and Suricata in my homelab in docker containers utilizing filebeat to ship the logs from Suricata's eve.json to Elasticsearch. This was the process. 
+
+First off you need to make sure you have docker. I also did this on an ubuntu server that I'm running on ESXI. Keep in mind the OS you're running on when looking at my commands.
+
+## Create a Directory
+
+In my home directory I have a Docker directory for my Docker projects.. Inside that Docker directory I created an ELK directory and inside there I created a suricata directory. Once you have that done and you've installed docker you should be ready to start.
 
 
 
@@ -39,7 +45,7 @@ The steps from the link above are:
 
 ```bash
 
-cd <directory you want to run suricata from>
+cd <suricata directory>
 
 docker pull jasonish/suricata:latest
 
