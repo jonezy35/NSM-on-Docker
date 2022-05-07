@@ -1,6 +1,11 @@
-I recently set up Elasticsearch, Kibana, and Suricata in my homelab in docker containers utilizing filebeat to ship the logs from Suricata's eve.json to Elasticsearch. This was the process. 
+I recently set up Elasticsearch, Kibana, and Suricata in my homelab in docker containers utilizing filebeat to ship the logs from Suricata's eve.json to Elasticsearch. This was the process.
 
 First off you need to make sure you have docker. I also did this on an ubuntu server that I'm running on ESXI. Keep in mind the OS you're running on when looking at my commands.
+
+## Capture Interface
+Also this assumes you've already set up a capture interface (ex. a SPAN port off of a managed switch). You need two interfaces on your box for this: your capture interface and a management interface. On ESXI when you create the capture interface you need to create a new virtual switch and enable promiscous mode. Then in the VM you need to run an `ip line set <capture interface> promisc on`.
+
+Now check to see if you're collecting traffic on the interface with a `tcpdump -i <capture interface>` You should see traffic after a few seconds. `CTRL+C` to exit the tcpdump.
 
 ## Create a Directory
 
