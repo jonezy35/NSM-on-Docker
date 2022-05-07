@@ -1,9 +1,35 @@
 I recently set up Elasticsearch, Kibana, and Suricata in my homelab in docker containers utilizing filebeat to ship the logs from Suricata's eve.json to Elasticsearch. This was the process.
 
-First off you need to make sure you have docker. I also did this on an ubuntu server that I'm running on ESXI. Keep in mind the OS you're running on when looking at my commands.
+# Why
+
+First off, why did I do this?
+
+This was a project I wanted to do as a precursor to bigger things. The benefits of running containers are great for development environments and at scale. It doesn't make a huge difference on the small scale that I did. However, my long term plan is to tear this down and set it up on a larger scale using Kubernetes. My long term goal is to get my [Certified Kubernetes Administrator](https://www.cncf.io/certification/cka/) cert.
+
+This was a way to validate what was in my head and get more comfortable with Docker. I'll let it run for awhile while I work through some pluralsight kubernetes courses and then I'll tear it down and do it again in Kubernetes.
+
+### The Benefits of Containerization
+
+  1. <ins>Portability</ins>: You can run a Docker image almost anywhere as long as Docker is installed on the host.
+  2. <ins>Better resource utilization</ins>: When running VM's, each VM needs a host OS which utilizes resources. Again, on a small scale this doesn't matter, but in a large scale environment this is a lot of resources lost. With containers, you don't need to waste resources on multiple OS's. [This site has a good image to explain what I'm talking about.](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.sdxcentral.com%2Fcloud%2Fcontainers%2Fdefinitions%2Fcontainers-vs-vms%2F&psig=AOvVaw3ERCyu7z_SDJGz7XCEmSbo&ust=1652019873455000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKCQ2ODLzfcCFQAAAAAdAAAAABAJ)
+  3. <ins>Microservices</ins>: Containers are great for developing [Microservices](https://www.redhat.com/en/topics/microservices/what-are-microservices).
+  ###### There are a lot more benefits to Containerization than I don't want to take the time go into here. If you're interested here are a few links to go deeper: [Here](https://www.ibm.com/cloud/blog/the-benefits-of-containerization-and-what-it-means-for-you) and [Here](https://www.veritis.com/blog/7-key-containerization-benefits-for-your-it-business/)
+
+Containers really shine in the cloud. All cloud platforms support [container orchestration](https://www.vmware.com/topics/glossary/content/container-orchestration.html#:~:text=Container%20orchestration%20is%20the%20automation,networking%2C%20load%20balancing%20and%20more.) with [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) or a proprietary orchestration method (AWS has [ECS](https://aws.amazon.com/ecs/) and [EKS](https://aws.amazon.com/eks/) Azure and GCP have their own version as well).
+
+
+
+## Downloading Docker
+
+To start, you need to make sure you have docker.
+
+[Here](https://docs.docker.com/engine/install/) is the link to download Docker
+
+## Housekeeping
+I did this on an ubuntu server that I'm running on ESXI. Keep in mind the OS you're running on when looking at my commands.
 
 ## Capture Interface
-Also this assumes you've already set up a capture interface (ex. a SPAN port off of a managed switch). You need two interfaces on your box for this: your capture interface and a management interface. On ESXI when you create the capture interface you need to create a new virtual switch and enable promiscous mode. Then in the VM you need to run an `ip line set <capture interface> promisc on`.
+First you need to set up a capture interface (ex. a SPAN port off of a managed switch). You need two interfaces on your box for this: your capture interface and a management interface. On ESXI when you create the capture interface you need to create a new virtual switch and enable promiscous mode. Then in the VM you need to run an `ip link set <capture interface> promisc on`
 
 Now check to see if you're collecting traffic on the interface with a `tcpdump -i <capture interface>` You should see traffic after a few seconds. `CTRL+C` to exit the tcpdump.
 
