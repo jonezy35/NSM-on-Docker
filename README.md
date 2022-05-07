@@ -15,7 +15,7 @@ This was a way to validate what was in my head and get more comfortable with Doc
   3. <ins>Microservices</ins>: Containers are great for developing [Microservices](https://www.redhat.com/en/topics/microservices/what-are-microservices).
   ###### There are a lot more benefits to Containerization than I don't want to take the time go into here. If you're interested here are a few links to go deeper: [Here](https://www.ibm.com/cloud/blog/the-benefits-of-containerization-and-what-it-means-for-you) and [Here](https://www.veritis.com/blog/7-key-containerization-benefits-for-your-it-business/)
 
-Containers really shine in the cloud. All cloud platforms support [container orchestration](https://www.vmware.com/topics/glossary/content/container-orchestration.html#:~:text=Container%20orchestration%20is%20the%20automation,networking%2C%20load%20balancing%20and%20more.) with [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) or a proprietary orchestration method (AWS has [ECS](https://aws.amazon.com/ecs/) and [EKS](https://aws.amazon.com/eks/) Azure and GCP have their own version as well).
+Containers really shine in the cloud. All cloud platforms support [container orchestration](https://www.vmware.com/topics/glossary/content/container-orchestration.html#:~:text=Container%20orchestration%20is%20the%20automation,networking%2C%20load%20balancing%20and%20more.) with [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) or a proprietary orchestration method (AWS has [ECS](https://aws.amazon.com/ecs/) and [EKS](https://aws.amazon.com/eks/), Azure and GCP have their own version as well).
 
 
 
