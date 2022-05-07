@@ -62,6 +62,8 @@ docker run --name kib-01 --net elastic -p 5601:5601 -d docker.elastic.co/kibana/
 
 Instead of running the containers with the `-it` flag, which runs them in the terminal, you should instead run them with the `-d` flag which will run them in the background.
 
+You should now be able to navigate to kibana at `http://<yourip>:5601`
+
 Then, to get the enrollment token for Kibana you can run a `docker logs es01` If that doesn't work you can run the following commands to get the enrollment token and the elastic password.
 
 `docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana`
