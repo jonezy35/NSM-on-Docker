@@ -4,7 +4,7 @@ I recently set up Elasticsearch, Kibana, and Suricata in my homelab in docker co
 
 First off, why did I do this?
 
-This was a project I wanted to do as a precursor to bigger things. The benefits of running containers are great for development environments and at scale. It doesn't make a huge difference on the small scale that I did. However, my long term plan is to tear this down and set it up on a larger scale using Kubernetes. My long term goal is to get my [Certified Kubernetes Administrator](https://www.cncf.io/certification/cka/) cert.
+This was a project I wanted to do as a precursor to bigger things. The benefits of running containers are great for development environments and at scale. My long term plan is to tear this down and set it up on a larger scale using Kubernetes. My long term goal is to get my [Certified Kubernetes Administrator](https://www.cncf.io/certification/cka/) cert.
 
 This was a way to validate what was in my head and get more comfortable with Docker. I'll let it run for awhile while I work through some pluralsight kubernetes courses and then I'll tear it down and do it again in Kubernetes.
 
